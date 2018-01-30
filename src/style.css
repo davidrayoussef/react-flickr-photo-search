@@ -41,8 +41,9 @@ main img {
 footer {
   grid-row: 4 / 5;
   display: grid;
-  max-width: 800px;
+  width: 840px;
   grid-template-columns: repeat(4, 1fr);
+  justify-content: space-between;
 }
 
 footer img {
