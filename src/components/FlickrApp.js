@@ -7,7 +7,22 @@ class FlickrApp extends Component {
   }
 
   render() {
-    return 'Flickr-App';
+    return (
+      <div className="wrapper">
+        <header>
+          <input placeholder="Search" />
+        </header>
+        <main>
+          <img style={{border: '1px solid black', height: 500 }} />
+        </main>
+        <footer>
+          <img style={{border: '1px solid black'}} />
+          <img style={{border: '1px solid black'}} />
+          <img style={{border: '1px solid black'}} />
+          <img style={{border: '1px solid black'}} />
+        </footer>
+      </div>
+    );
   }
 }
 
