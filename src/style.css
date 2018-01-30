@@ -8,12 +8,12 @@ body {
   font-size: 16px;
   margin: 0;
   padding: 0;
-  overflow-y: scroll;
 }
 
 .wrapper {
   display: grid;
-  grid-template-rows: 1fr auto minmax(100px, 350px) auto 1fr;
+  grid-gap: 1rem;
+  grid-template-rows: 1fr 1fr minmax(100px, 500px) max-content 1fr;
   justify-items: center;
   align-items: center;
   align-content: center;
@@ -22,6 +22,12 @@ body {
 
 header {
   grid-row: 2 / 3;
+  width: 800px;
+}
+
+header input {
+  width: 100%;
+  padding: 1em;
 }
 
 main {
@@ -30,4 +36,13 @@ main {
 
 footer {
   grid-row: 4 / 5;
+  display: grid;
+  max-width: 800px;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+footer img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
 }
