@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const Gallery = ({photos}) => {
+  const renderPhotos = photos.slice(0, 4).map(photo => (
+    <img key={photo.src} src={photo.src} alt={photo.title} />
+  ));
+
   return (
     <footer>
-      {
-        photos.map(photo => (
-          <img key={photo.src} src={require(`../images/${photo.src}`)} />
-        ))
-      }
+      { renderPhotos }
     </footer>
   );
 }
