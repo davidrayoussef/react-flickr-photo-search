@@ -34,6 +34,10 @@ main {
   grid-row: 3 / 4;
 }
 
+main img {
+  height: 50vh;
+}
+
 footer {
   grid-row: 4 / 5;
   display: grid;

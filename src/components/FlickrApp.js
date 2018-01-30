@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SearchBox from './SearchBox';
+import DisplayImage from './DisplayImage';
 import PropTypes from 'prop-types';
 
 class FlickrApp extends Component {
@@ -21,9 +22,7 @@ class FlickrApp extends Component {
     return (
       <div className="wrapper">
         <SearchBox />
-        <main>
-          <img style={{border: '1px solid black', height: 500 }} />
-        </main>
+        <DisplayImage />
         <footer>
           {renderPhotos}
         </footer>
