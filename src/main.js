@@ -4,6 +4,6 @@ import FlickrApp from './components/FlickrApp';
 import './style.css';
 
 render(
-  <FlickrApp />,
+  <FlickrApp photoCount={10} />,
   document.getElementById("app")
 );

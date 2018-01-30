@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 const SearchBox = () => {
   return (
@@ -8,9 +7,5 @@ const SearchBox = () => {
     </header>
   );
 }
-
-SearchBox.propTypes = {
-
-};
 
 export default SearchBox;

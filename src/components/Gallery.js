@@ -14,7 +14,7 @@ const Gallery = ({photos}) => {
 }
 
 Gallery.propTypes = {
-
+  photos: PropTypes.arrayOf(PropTypes.object).isRequired
 };
 
 export default Gallery;
