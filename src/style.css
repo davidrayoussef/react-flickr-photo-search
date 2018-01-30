@@ -10,3 +10,24 @@ body {
   padding: 0;
   overflow-y: scroll;
 }
+
+.wrapper {
+  display: grid;
+  grid-template-rows: 1fr auto minmax(100px, 350px) auto 1fr;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  height: 100vh;
+}
+
+header {
+  grid-row: 2 / 3;
+}
+
+main {
+  grid-row: 3 / 4;
+}
+
+footer {
+  grid-row: 4 / 5;
+}
