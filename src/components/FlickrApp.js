@@ -15,20 +15,21 @@ class FlickrApp extends Component {
   constructor() {
     super();
 
-    this.handleThumbnailClick = this.handleThumbnailClick.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleLeftArrowClick = this.handleLeftArrowClick.bind(this);
     this.handleRightArrowClick = this.handleRightArrowClick.bind(this);
+    this.handleThumbnailClick = this.handleThumbnailClick.bind(this);
   }
 
   componentDidMount() {
-    this.fetchPhotos();
+    this.fetchPhotos(this.state.searchTerm);
   }
 
-  fetchPhotos() {
-    const { searchTerm } = this.state;
+  fetchPhotos(searchTerm) {
     const photoCount = Math.min(this.props.photoCount, this.props.maxPhotoCount);
     const apiKey = '188ac9a8bb5d3352dd8d114ca8e93061';
-    const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${searchTerm}&per_page=${photoCount}&page=1&format=json&nojsoncallback=1`;
+    const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${searchTerm}&per_page=${photoCount}&page=1&safe_search=1&format=json&nojsoncallback=1`;
 
     fetch(url)
       .then(res => res.json())
@@ -45,10 +46,16 @@ class FlickrApp extends Component {
       .catch(err => console.log(err));
   }
 
-  handleThumbnailClick(e) {
+  handleInputChange(e) {
     this.setState({
-      activeIndex: +e.target.dataset.index
+      searchTerm: e.target.value
     });
+  }
+
+  handleFormSubmit(e) {
+    e.preventDefault();
+
+    this.fetchPhotos(this.state.searchTerm);
   }
 
   handleLeftArrowClick() {
@@ -67,20 +74,32 @@ class FlickrApp extends Component {
     });
   }
 
+  handleThumbnailClick(e) {
+    this.setState({
+      activeIndex: +e.target.dataset.index
+    });
+  }
+
   render() {
+    const { photos, activeIndex } = this.state;
+    const { handleFormSubmit, handleInputChange, handleLeftArrowClick, handleRightArrowClick, handleThumbnailClick } = this;
+
     return (
       <div className="wrapper">
-        <SearchBox />
+        <SearchBox
+          handleFormSubmit={handleFormSubmit}
+          handleInputChange={handleInputChange}
+        />
         <Slider
-          photos={this.state.photos}
-          activeIndex={this.state.activeIndex}
-          handleLeftArrowClick={this.handleLeftArrowClick}
-          handleRightArrowClick={this.handleRightArrowClick}
+          photos={photos}
+          activeIndex={activeIndex}
+          handleLeftArrowClick={handleLeftArrowClick}
+          handleRightArrowClick={handleRightArrowClick}
         />
         <Gallery
-          photos={this.state.photos}
-          activeIndex={this.state.activeIndex}
-          handleThumbnailClick={this.handleThumbnailClick}
+          photos={photos}
+          activeIndex={activeIndex}
+          handleThumbnailClick={handleThumbnailClick}
         />
       </div>
     );

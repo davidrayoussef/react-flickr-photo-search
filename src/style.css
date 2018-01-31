@@ -45,7 +45,8 @@ main img {
 
 .icon-arrow {
   width: 8rem;
-  stroke: grey;
+  stroke: rgba(195, 195, 195, 1);
+  stroke-width: .4;
   cursor: pointer;
 }
 
