@@ -12,6 +12,12 @@ class FlickrApp extends Component {
     photos: []
   }
 
+  constructor() {
+    super();
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
   componentDidMount() {
     this.fetchPhotos();
   }
@@ -37,12 +43,20 @@ class FlickrApp extends Component {
       .catch(err => console.log(err));
   }
 
+  handleClick(e) {
+    console.log(this);
+    console.log(e.target);
+    this.setState({
+      activeIndex: +e.target.dataset.index
+    });
+  }
+
   render() {
     return (
       <div className="wrapper">
         <SearchBox />
-        <DisplayImage />
-        <Gallery photos={this.state.photos} />
+        <DisplayImage photos={this.state.photos} activeIndex={this.state.activeIndex} />
+        <Gallery photos={this.state.photos} handleClick={this.handleClick} />
       </div>
     );
   }
