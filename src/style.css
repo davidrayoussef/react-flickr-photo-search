@@ -41,6 +41,7 @@ main {
 
 main img {
   height: 50vh;
+  animation: .3s fadeIn ease-out;
 }
 
 .icon-arrow {
@@ -59,7 +60,7 @@ main img {
   justify-self: flex-end;
 }
 
-footer {
+.thumbs-container {
   grid-row: 4 / 5;
   display: grid;
   width: 840px;
@@ -67,15 +68,17 @@ footer {
   justify-content: space-between;
 }
 
-footer img {
+.thumbs-container img {
   width: 200px;
   height: 200px;
   object-fit: cover;
   cursor: pointer;
   border: 2px solid transparent;
+  animation: .3s fadeIn ease-out;
+  transition: border .15s linear;
 }
 
-.active {
+.thumbs-container .active {
   border-color: rgba(77, 138, 250, 1);
 }
 
@@ -108,5 +111,14 @@ footer img {
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

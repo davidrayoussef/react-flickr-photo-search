@@ -1,8 +1,9 @@
 import React from 'react';
+import FlipMove from 'react-flip-move';
 import PropTypes from 'prop-types';
 
 const Gallery = ({activeIndex, photos, handleThumbnailClick}) => {
-  const startIndex = activeIndex > 2 ? activeIndex - 1 : 0;
+  const startIndex = activeIndex > 1 ? activeIndex - 1 : 0;
   const endIndex = startIndex + 4;
 
   const renderThumbs = photos.map((photo,i) => (
@@ -17,9 +18,11 @@ const Gallery = ({activeIndex, photos, handleThumbnailClick}) => {
   ));
 
   return (
-    <footer>
+    <FlipMove
+      className="thumbs-container"
+    >
       { renderThumbs.slice(startIndex, endIndex) }
-    </footer>
+    </FlipMove>
   );
 }
 
