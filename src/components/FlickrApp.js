@@ -19,7 +19,12 @@ class FlickrApp extends Component {
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleLeftArrowClick = this.handleLeftArrowClick.bind(this);
     this.handleRightArrowClick = this.handleRightArrowClick.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handleThumbnailClick = this.handleThumbnailClick.bind(this);
+  }
+
+  componentWillMount() {
+     document.addEventListener('keydown', this.handleKeyPress, false);
   }
 
   componentDidMount() {
@@ -59,6 +64,26 @@ class FlickrApp extends Component {
   }
 
   handleLeftArrowClick() {
+    this.slideLeft();
+  }
+
+  handleRightArrowClick() {
+    this.slideRight();
+  }
+
+  handleKeyPress(e) {
+    if (document.querySelector('input') === document.activeElement) return;
+    if (e.key === 'ArrowRight') this.slideRight();
+    if (e.key === 'ArrowLeft') this.slideLeft();
+  }
+
+  handleThumbnailClick(e) {
+    this.setState({
+      activeIndex: +e.target.dataset.index
+    });
+  }
+
+  slideLeft() {
     const { activeIndex, photos } = this.state;
 
     this.setState({
@@ -66,17 +91,11 @@ class FlickrApp extends Component {
     });
   }
 
-  handleRightArrowClick() {
+  slideRight() {
     const { activeIndex, photos } = this.state;
 
     this.setState({
       activeIndex: (activeIndex + 1) % photos.length
-    });
-  }
-
-  handleThumbnailClick(e) {
-    this.setState({
-      activeIndex: +e.target.dataset.index
     });
   }
 
