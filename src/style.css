@@ -78,3 +78,35 @@ footer img {
 .active {
   border-color: rgba(77, 138, 250, 1);
 }
+
+.loader-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.loader {
+  font-size: 5px;
+  border-top: 2em solid rgba(0, 0, 0, .15);
+  border-right: 2em solid rgba(0, 0, 0, .15);
+  border-bottom: 2em solid rgba(0, 0, 0, .15);
+  border-left: 2em solid rgba(0, 0, 0, 0.3);
+  transform: translateZ(0);
+  animation: spinner .9s infinite linear;
+}
+
+.loader, .loader::after {
+  border-radius: 50%;
+  width: 20em;
+  height: 20em;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

@@ -100,9 +100,16 @@ class FlickrApp extends Component {
   }
 
   render() {
-    const { photos, activeIndex } = this.state;
+    const { loading, photos, activeIndex } = this.state;
     const { handleFormSubmit, handleInputChange, handleLeftArrowClick, handleRightArrowClick, handleThumbnailClick } = this;
 
+    if (loading) {
+      return (
+        <div className="loader-container">
+          <div className="loader"></div>
+        </div>
+      );
+    }
     return (
       <div className="wrapper">
         <SearchBox
