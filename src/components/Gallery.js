@@ -1,27 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Gallery = ({photos, handleClick}) => {
-  const renderPhotos = photos.slice(0, 4).map((photo,i) => (
+const Gallery = ({activeIndex, photos, handleThumbnailClick}) => {
+  const startIndex = activeIndex > 2 ? activeIndex - 1 : 0;
+  const endIndex = startIndex + 4;
+
+  const renderThumbs = photos.map((photo,i) => (
     <img
       key={photo.src}
       src={photo.src}
+      className={activeIndex === i ? 'active' : null}
       alt={photo.title}
       data-index={i}
-      onClick={handleClick}
+      onClick={handleThumbnailClick}
     />
   ));
 
   return (
     <footer>
-      { renderPhotos }
+      { renderThumbs.slice(startIndex, endIndex) }
     </footer>
   );
 }
 
 Gallery.propTypes = {
-  // handleClick: PropTypes.function.isRequired,
-  photos: PropTypes.arrayOf(PropTypes.object).isRequired
+  activeIndex: PropTypes.number.isRequired,
+  photos: PropTypes.arrayOf(PropTypes.object).isRequired,
+  handleThumbnailClick: PropTypes.func.isRequired
 };
 
 export default Gallery;

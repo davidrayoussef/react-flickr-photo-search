@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SearchBox from './SearchBox';
-import DisplayImage from './DisplayImage';
+import Slider from './Slider';
 import Gallery from './Gallery';
 import PropTypes from 'prop-types';
 
@@ -15,7 +15,9 @@ class FlickrApp extends Component {
   constructor() {
     super();
 
-    this.handleClick = this.handleClick.bind(this);
+    this.handleThumbnailClick = this.handleThumbnailClick.bind(this);
+    this.handleLeftArrowClick = this.handleLeftArrowClick.bind(this);
+    this.handleRightArrowClick = this.handleRightArrowClick.bind(this);
   }
 
   componentDidMount() {
@@ -43,11 +45,25 @@ class FlickrApp extends Component {
       .catch(err => console.log(err));
   }
 
-  handleClick(e) {
-    console.log(this);
-    console.log(e.target);
+  handleThumbnailClick(e) {
     this.setState({
       activeIndex: +e.target.dataset.index
+    });
+  }
+
+  handleLeftArrowClick() {
+    const { activeIndex, photos } = this.state;
+
+    this.setState({
+      activeIndex: activeIndex === 0 ? photos.length - 1 : activeIndex - 1
+    });
+  }
+
+  handleRightArrowClick() {
+    const { activeIndex, photos } = this.state;
+
+    this.setState({
+      activeIndex: (activeIndex + 1) % photos.length
     });
   }
 
@@ -55,8 +71,17 @@ class FlickrApp extends Component {
     return (
       <div className="wrapper">
         <SearchBox />
-        <DisplayImage photos={this.state.photos} activeIndex={this.state.activeIndex} />
-        <Gallery photos={this.state.photos} handleClick={this.handleClick} />
+        <Slider
+          photos={this.state.photos}
+          activeIndex={this.state.activeIndex}
+          handleLeftArrowClick={this.handleLeftArrowClick}
+          handleRightArrowClick={this.handleRightArrowClick}
+        />
+        <Gallery
+          photos={this.state.photos}
+          activeIndex={this.state.activeIndex}
+          handleThumbnailClick={this.handleThumbnailClick}
+        />
       </div>
     );
   }

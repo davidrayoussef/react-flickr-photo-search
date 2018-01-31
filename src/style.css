@@ -31,11 +31,31 @@ header input {
 }
 
 main {
+  width: 100vw;
   grid-row: 3 / 4;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  align-items: center;
 }
 
 main img {
   height: 50vh;
+}
+
+.icon-arrow {
+  width: 8rem;
+  stroke: grey;
+  cursor: pointer;
+}
+
+.icon-arrow.left {
+  transform: scaleX(-1);
+  justify-self: flex-start;
+}
+
+.icon-arrow.right {
+  justify-self: flex-end;
 }
 
 footer {
@@ -51,4 +71,9 @@ footer img {
   height: 200px;
   object-fit: cover;
   cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.active {
+  border-color: rgba(77, 138, 250, 1);
 }
