@@ -1,6 +1,6 @@
 import React from 'react';
-import FlipMove from 'react-flip-move';
 import PropTypes from 'prop-types';
+import FlipMove from 'react-flip-move';
 
 const Gallery = ({activeIndex, photos, handleThumbnailClick}) => {
   const startIndex = activeIndex > 1 ? activeIndex - 1 : 0;

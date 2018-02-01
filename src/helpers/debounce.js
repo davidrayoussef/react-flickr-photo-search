@@ -1,11 +1,9 @@
-function debounce(fn, time, interval = null) {
-  return ((...args) => {
+const debounce = (() => {
+  let interval = 0;
+  return (fn, time) => {
     clearTimeout(interval);
-    interval = setTimeout(() => {
-      interval = null;
-      fn(...args);
-    }, time);
-  })();
-}
+    interval = setTimeout(fn, time);
+  };
+})();
 
 export default debounce;

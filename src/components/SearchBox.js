@@ -11,7 +11,7 @@ const SearchBox = ({fetchPhotos, handleFormSubmit, handleInputChange}) => {
           placeholder="Search"
           autoFocus
           onChange={handleInputChange}
-          onKeyUp={() => debounce(fetchPhotos, 700)}
+          onKeyUp={() => debounce(fetchPhotos, 600)}
         />
       </form>
     </header>

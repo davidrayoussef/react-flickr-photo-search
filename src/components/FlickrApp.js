@@ -43,7 +43,7 @@ class FlickrApp extends Component {
       .then(({photos}) => photos.photo.map(photo => (
         {
           title: photo.title,
-          src: `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_c.jpg`,
+          src: `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`,
           thumb: `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_q.jpg`
         }
       )))
