@@ -14,7 +14,7 @@ const SearchBox = ({handleFormSubmit, handleInputChange}) => {
       </form>
     </header>
   );
-}
+};
 
 SearchBox.propTypes = {
   handleFormSubmit: PropTypes.func.isRequired,

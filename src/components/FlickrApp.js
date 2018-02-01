@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 
 class FlickrApp extends Component {
   state = {
-    searchTerm: 'dogs',
+    searchTerm: 'puppies',
     activeIndex: 0,
     loading: true,
     photos: []
@@ -24,7 +24,7 @@ class FlickrApp extends Component {
   }
 
   componentWillMount() {
-     document.addEventListener('keydown', this.handleKeyPress, false);
+     document.addEventListener('keydown', this.handleKeyPress);
   }
 
   componentDidMount() {
@@ -41,7 +41,8 @@ class FlickrApp extends Component {
       .then(({photos}) => photos.photo.map(photo => (
         {
           title: photo.title,
-          src: `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`
+          src: `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_c.jpg`,
+          thumb: `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_q.jpg`
         }
       )))
       .then(photos => this.setState({
