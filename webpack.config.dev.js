@@ -23,14 +23,6 @@ module.exports = {
         ]
       },
 			{
-        test: /\.(png|jpg|gif)$/,
-        use: ['url-loader']
-      },
-      {
-        test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
-        loader: 'file-loader?name=assets/[name].[hash].[ext]'
-      },
-			{
 				test: /\.js$/,
 				exclude: /node_modules/,
 				use: ['babel-loader']
@@ -57,6 +49,11 @@ module.exports = {
       template: __dirname + '/src/index.html',
       filename: 'index.html',
       inject: 'body'
-    })
+    }),
+		new webpack.DefinePlugin({
+		  'process.env': {
+		    'FLICKR_APP_API_KEY': JSON.stringify(process.env.FLICKR_APP_API_KEY)
+		  }
+		})
 	]
 };
