@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import SearchBox from './SearchBox';
 import Slider from './Slider';
 import Gallery from './Gallery';
-import PropTypes from 'prop-types';
 
 class FlickrApp extends Component {
   state = {
@@ -29,7 +29,7 @@ class FlickrApp extends Component {
   }
 
   componentDidMount() {
-    this.fetchPhotos(this.state.searchTerm);
+    this.fetchPhotos();
   }
 
   fetchPhotos() {
