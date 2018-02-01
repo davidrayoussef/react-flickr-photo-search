@@ -6,7 +6,7 @@ import Gallery from './Gallery';
 
 class FlickrApp extends Component {
   state = {
-    searchTerm: 'puppies',
+    searchTerm: 'dogs',
     activeIndex: 0,
     loading: true,
     photos: []
