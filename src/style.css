@@ -3,8 +3,8 @@
 }
 
 body {
-  width: 100%;
-  font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  width: 100vw;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 16px;
   margin: 0;
   padding: 0;
@@ -12,8 +12,8 @@ body {
 
 .wrapper {
   display: grid;
-  grid-gap: 1rem;
-  grid-template-rows: 1fr 1fr minmax(100px, 500px) max-content 1fr;
+  grid-gap: 2em;
+  grid-template-rows: 10vh 10vh 40vh 30vh 10vh;
   justify-items: center;
   align-items: center;
   align-content: center;
@@ -21,8 +21,10 @@ body {
 }
 
 header {
+  width: 90vw;
+  max-width: 800px;
   grid-row: 2 / 3;
-  width: 800px;
+  align-self: end;
 }
 
 header input {
@@ -32,20 +34,23 @@ header input {
 
 main {
   width: 100vw;
+  height: 50vh;
+  max-width: 800px;
   grid-row: 3 / 4;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 10fr 1fr;
   justify-items: center;
   align-items: center;
 }
 
 main img {
-  height: 50vh;
+  max-height: 440px;
+  max-width: 80%;
   animation: .3s fadeIn ease-out;
 }
 
 .icon-arrow {
-  width: 8rem;
+  width: 3em;
   stroke: rgba(195, 195, 195, 1);
   stroke-width: .4;
   cursor: pointer;
@@ -61,16 +66,17 @@ main img {
 }
 
 .thumbs-container {
+  width: 90vw;
+  max-width: 800px;
   grid-row: 4 / 5;
   display: grid;
-  width: 840px;
+  grid-gap: .5em;
   grid-template-columns: repeat(4, 1fr);
   justify-content: space-between;
 }
 
 .thumbs-container img {
-  width: 200px;
-  height: 200px;
+  width: 100%;
   object-fit: cover;
   cursor: pointer;
   border: 2px solid transparent;

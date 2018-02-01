@@ -1,5 +1,5 @@
 {
-  "name": "flickr-photo-viewer",
+  "name": "react-flickr-photo-search",
   "version": "1.0.0",
   "description": "A Flickr photo viewer.",
   "main": "main.js",
@@ -7,8 +7,8 @@
     "start": "webpack-dev-server --config webpack.config.dev.js",
     "build": "webpack --config webpack.config.prod.js --progress"
   },
-  "repository": "davidrayoussef/flickr-photo-viewer",
-  "homepage": "https://github.com/davidrayoussef/flickr-photo-viewer",
+  "repository": "davidrayoussef/react-flickr-photo-search",
+  "homepage": "https://github.com/davidrayoussef/react-flickr-photo-search",
   "author": "David Ra Youssef (davidradeveloper@gmail.com)",
   "license": "MIT",
   "devDependencies": {

@@ -18,7 +18,7 @@ const Gallery = ({activeIndex, photos, handleThumbnailClick}) => {
   ));
 
   return (
-    <FlipMove className="thumbs-container">
+    <FlipMove className="thumbs-container" leaveAnimation={null} >
       { renderThumbs.slice(startIndex, endIndex) }
     </FlipMove>
   );
