@@ -24,7 +24,6 @@ header {
   width: 90vw;
   max-width: 800px;
   grid-row: 2 / 3;
-  align-self: end;
 }
 
 header input {
@@ -50,10 +49,15 @@ main img {
 }
 
 .icon-arrow {
-  width: 3em;
+  width: 4em;
   stroke: rgba(195, 195, 195, 1);
   stroke-width: .4;
   cursor: pointer;
+  transition: .2s;
+}
+
+.icon-arrow:hover, .icon-arrow:active {
+  stroke: rgba(77, 138, 250, 1);
 }
 
 .icon-arrow.left {

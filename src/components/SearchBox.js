@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import debounce from '../helpers/debounce';
 
-const SearchBox = ({handleFormSubmit, handleInputChange}) => {
+const SearchBox = ({fetchPhotos, handleFormSubmit, handleInputChange}) => {
   return (
     <header>
       <form onSubmit={handleFormSubmit}>
@@ -10,6 +11,7 @@ const SearchBox = ({handleFormSubmit, handleInputChange}) => {
           placeholder="Search"
           autoFocus
           onChange={handleInputChange}
+          onKeyUp={() => debounce(fetchPhotos, 700)}
         />
       </form>
     </header>
@@ -17,6 +19,7 @@ const SearchBox = ({handleFormSubmit, handleInputChange}) => {
 };
 
 SearchBox.propTypes = {
+  fetchPhotos: PropTypes.func.isRequired,
   handleFormSubmit: PropTypes.func.isRequired,
   handleInputChange: PropTypes.func.isRequired
 };
