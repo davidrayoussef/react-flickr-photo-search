@@ -44,7 +44,7 @@ class FlickrApp extends Component {
         {
           title: photo.title,
           src: `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`,
-          thumb: `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_q.jpg`
+          thumb: `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}_s.jpg`
         }
       )))
       .then(photos => this.setState({

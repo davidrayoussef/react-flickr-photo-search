@@ -56,7 +56,7 @@ main img {
   transition: .2s;
 }
 
-.icon-arrow:hover, .icon-arrow:active {
+.icon-arrow:hover {
   stroke: rgba(77, 138, 250, 1);
 }
 
