@@ -1,4 +1,4 @@
-# Flickr Photo Viewer
+# React Flickr Photo Search
 A Flickr photo search app built with React.
 
 [View Demo](http://davidra.co/react-flickr-photo-search)
@@ -13,9 +13,9 @@ $ npm install
 
 ```
 
-Set your api key to the environment variable FLICKR_APP_API_KEY
+Set your Flickr api key to process.env.FLICKR_APP_API_KEY
 ```shell
-$ FLICKR_APP_API_KEY='YOUR_API_KEY'
+FLICKR_APP_API_KEY='YOUR_API_KEY'
 ```
 
 Start the app
