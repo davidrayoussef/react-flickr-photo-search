@@ -26,6 +26,7 @@ $ npm start
 Features
 ---------------
 - Searches while you type (debounced with a half-second delay)
+- Keyboard navigation with the right and left arrow keys (unless focused in input search box)
 - Responsive without media queries using CSS grid
 - Gallery thumbnails animate using [react-flip-move](https://github.com/joshwcomeau/react-flip-move)
 
