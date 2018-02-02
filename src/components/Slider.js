@@ -17,7 +17,14 @@ const Slider = ({activeIndex, photos, handleLeftArrowClick, handleRightArrowClic
       </main>
     );
   }
-  else return null;
+  else return (
+    <main>
+      <div className="no-results">
+        <h3>No results.</h3>
+        <p>Try another search.</p>
+      </div>
+    </main>
+  );
 };
 
 Slider.propTypes = {

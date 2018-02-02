@@ -69,6 +69,24 @@ main img {
   justify-self: flex-end;
 }
 
+.no-results {
+  grid-column: span 3;
+  font-weight: 100;
+  text-align: center;
+}
+
+.no-results h3 {
+  color: rgba(77, 138, 250, 1);
+  font-size: 2em;
+  margin: 0;
+}
+
+.no-results p {
+  color: #444;
+  font-size: 1.5em;
+  margin: .7em;
+}
+
 .thumbs-container {
   width: 90vw;
   max-width: 800px;

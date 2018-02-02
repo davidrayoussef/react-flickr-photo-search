@@ -13,12 +13,12 @@ $ npm install
 
 ```
 
-Set your Flickr api key to process.env.FLICKR_APP_API_KEY
+Set your Flickr api key to process.env.FLICKR_APP_API_KEY.
 ```shell
 FLICKR_APP_API_KEY='YOUR_API_KEY'
 ```
 
-Start the app
+Start the app.
 ```shell
 $ npm start
 ```
