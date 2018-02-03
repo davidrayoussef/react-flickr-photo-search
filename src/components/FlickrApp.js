@@ -25,7 +25,7 @@ class FlickrApp extends Component {
   }
 
   componentWillMount() {
-     document.addEventListener('keydown', this.handleKeyPress);
+    document.addEventListener('keydown', this.handleKeyPress);
   }
 
   componentDidMount() {
@@ -33,7 +33,7 @@ class FlickrApp extends Component {
   }
 
   fetchPhotos() {
-    const { searchTerm } = this.state;
+    const { searchTerm, activeIndex } = this.state;
     const photoCount = Math.min(this.props.photoCount, this.props.maxPhotoCount);
     const apiKey = process.env.FLICKR_APP_API_KEY;
     const url = `https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${searchTerm}&per_page=${photoCount}&page=1&safe_search=1&format=json&nojsoncallback=1`;
@@ -49,6 +49,7 @@ class FlickrApp extends Component {
       )))
       .then(photos => this.setState({
         photos: photos,
+        activeIndex: 0,
         loading: false
       }))
       .catch(err => console.log(err));
@@ -63,7 +64,7 @@ class FlickrApp extends Component {
   handleFormSubmit(e) {
     e.preventDefault();
 
-    this.fetchPhotos(this.state.searchTerm);
+    this.fetchPhotos();
   }
 
   handleLeftArrowClick() {
@@ -81,9 +82,11 @@ class FlickrApp extends Component {
   }
 
   handleThumbnailClick(e) {
-    this.setState({
-      activeIndex: +e.target.dataset.index
-    });
+    if ( e.target.nodeName === 'IMG' ) {
+      this.setState({
+        activeIndex: +e.target.dataset.index
+      });
+    }
   }
 
   slideLeft() {
