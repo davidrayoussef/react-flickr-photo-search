@@ -13,12 +13,15 @@ const Gallery = ({activeIndex, photos, handleThumbnailClick}) => {
       className={activeIndex === i ? 'active' : null}
       alt={photo.title}
       data-index={i}
-      onClick={handleThumbnailClick}
     />
   ));
 
   return (
-    <FlipMove className="thumbs-container" leaveAnimation={null} >
+    <FlipMove
+      className="thumbs-container"
+      leaveAnimation={null}
+      onClick={handleThumbnailClick}
+    >
       { renderThumbs.slice(startIndex, endIndex) }
     </FlipMove>
   );

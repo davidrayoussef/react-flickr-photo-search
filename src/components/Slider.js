@@ -20,7 +20,7 @@ const Slider = ({activeIndex, photos, handleLeftArrowClick, handleRightArrowClic
   else return (
     <main>
       <div className="no-results">
-        <h3>No results.</h3>
+        <h3>No results found.</h3>
         <p>Try another search.</p>
       </div>
     </main>
